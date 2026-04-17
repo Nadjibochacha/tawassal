@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+/* Custom SweetAlert Styling */
+.swal2-popup {
+    border-radius: 30px !important;
+    font-family: 'Tajawal', sans-serif !important;
+    border: 6px solid #fbbf24 !important; /* Yellow border */
+  }
+  
+  .swal2-title {
+    font-size: 2.5rem !important;
+    font-weight: 900 !important;
+  }
