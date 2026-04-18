@@ -41,15 +41,23 @@ export function useTextToSpeech(): TTSResult {
       const utt = new SpeechSynthesisUtterance(text);
   
       const allVoices = window.speechSynthesis.getVoices();
-      const arabicVoice = allVoices.find(v => v.lang === "ar-SA")
-        ?? allVoices.find(v => v.lang.startsWith("ar"))
+      
+      // Look for ANY Arabic voice (ar-EG, ar-AE, ar-SA, ar-MA, etc.)
+      const arabicVoice = allVoices.find(v => v.lang.startsWith("ar"))
         ?? allVoices[0]   // fallback: just use whatever is available
         ?? null;
   
       console.log("Using voice:", arabicVoice); // remove after debugging
   
-      utt.voice = arabicVoice;
-      utt.lang  = "ar-SA"; // always force Arabic, regardless of voice
+      if (arabicVoice) {
+        utt.voice = arabicVoice;
+        // CRITICAL FIX: Dynamically set the lang to match the exact Arabic voice found on the device
+        utt.lang = arabicVoice.lang.startsWith("ar") ? arabicVoice.lang : "ar";
+      } else {
+        // Absolute fallback if no voice object is found at all
+        utt.lang = "ar"; 
+      }
+      
       utt.rate  = options.rate  ?? 1;
       utt.pitch = options.pitch ?? 1;
   

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { useTextToSpeech } from "../../utils/audio";
+import { useTextToSpeech } from "../../hooks/audio";
 
 const QuizCard = ({ question, options, onCorrectAnswer, onWrongAnswer }) => {
   
