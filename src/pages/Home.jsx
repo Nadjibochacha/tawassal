@@ -43,7 +43,7 @@ const Home = ({ onSelectZone, completedZones = [] }) => {
                 {zone.title}
               </div>
               <div className="mt-2 text-sm opacity-60">
-                {isDone ? 'تم الإكمال!' : '١٢ كلمة جديدة'}
+                {isDone ? 'تم الإكمال!' : `${zone.levels[0].questions.length} كلمة`}
               </div>
             </button>
           );

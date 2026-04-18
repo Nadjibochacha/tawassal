@@ -2,8 +2,8 @@
 import { useEffect, useRef } from "react";
 
 interface TTSOptions {
-  rate?: number;   // 0.5 – 2, default 1
-  pitch?: number;  // 0.5 – 2, default 1
+  rate?: number;   
+  pitch?: number; 
 }
 
 interface TTSResult {
@@ -29,12 +29,10 @@ export function useTextToSpeech(): TTSResult {
   const speak = (text: string, options: TTSOptions = {}): Promise<void> => {
     return new Promise((resolve, reject) => {
       if (!("speechSynthesis" in window)) {
-        reject(new Error("Web Speech API is not supported in this browser."));
         return;
       }
   
       if (!text.trim()) {
-        reject(new Error("Text is empty."));
         return;
       }
   
@@ -57,7 +55,6 @@ export function useTextToSpeech(): TTSResult {
   
       utt.onend   = () => resolve();
       utt.onerror = (e) => {
-        console.error("TTS error:", e); // full error object for debugging
         reject(new Error(`Speech error: ${e.error}`));
       };
   
