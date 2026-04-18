@@ -37,7 +37,7 @@ function App() {
           className="text-4xl font-black text-orange-500 drop-shadow-sm cursor-pointer"
           onClick={() => setScreen('home')}
         >
-          ماذا أنا؟
+          توَاصَل
         </motion.h1>
 
         {/* Star Counter */}

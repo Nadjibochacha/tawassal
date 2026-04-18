@@ -4,11 +4,8 @@ import { Star } from 'lucide-react';
 
 const Home = ({ onSelectZone, completedZones = [] }) => {
   const handleZoneClick = (zoneId) => {
-    // WARM UP: Speak an empty string to unlock the audio context
     const probe = new SpeechSynthesisUtterance("");
     window.speechSynthesis.speak(probe);
-    
-    // Now proceed to the game
     onSelectZone(zoneId);
   };
   return (
@@ -25,14 +22,13 @@ const Home = ({ onSelectZone, completedZones = [] }) => {
             <button
               key={zone.id}
               onClick={() => handleZoneClick(zone.id)}
-              className={`group relative p-8 rounded-[40px] shadow-xl transition-all border-b-8 
+              className={`group relative cursor-pointer p-8 rounded-[40px] shadow-xl transition-all border-b-8 
                 ${isDone 
                   ? 'bg-green-50 border-green-400 text-green-700' 
                   : 'bg-white border-gray-100 text-blue-600'
                 } 
                 active:border-b-0 active:translate-y-2 hover:bg-yellow-50`}
             >
-              {/* Star Badge for completed levels */}
               {isDone && (
                 <div className="absolute top-6 right-6 text-yellow-500 animate-bounce">
                   <Star fill="currentColor" size={32} />
@@ -46,8 +42,6 @@ const Home = ({ onSelectZone, completedZones = [] }) => {
               <div className="text-3xl font-bold uppercase tracking-wide">
                 {zone.title}
               </div>
-
-              {/* Added a small subtitle for extra polish */}
               <div className="mt-2 text-sm opacity-60">
                 {isDone ? 'تم الإكمال!' : '١٢ كلمة جديدة'}
               </div>

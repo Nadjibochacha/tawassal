@@ -8,13 +8,8 @@ const QuizCard = ({ question, options, onCorrectAnswer, onWrongAnswer }) => {
   const { speak } = useTextToSpeech();
 
   const handleOptionClick = async (choice) => {
-    // 1. Play the high-quality Google voice instantly
     speak(choice.name);
-    
-    // 2. Wait exactly 0.5s for the word to finish
-    await delay(500);
-
-    // 3. Decision
+    await delay(1000);
     if (choice.id === question.id) {
       onCorrectAnswer();
     } else {
@@ -26,7 +21,8 @@ const QuizCard = ({ question, options, onCorrectAnswer, onWrongAnswer }) => {
     <div className="flex flex-col items-center gap-8 p-4">
       {/* Main Image */}
       <motion.div 
-        
+        whileHover={{ rotate: -2 }}
+        onClick={()=>speak(question.name)}
         className="w-64 h-64 bg-white rounded-[50px] border-8 border-yellow-400 shadow-2xl overflow-hidden flex items-center justify-center cursor-pointer"
       >
         
@@ -39,7 +35,7 @@ const QuizCard = ({ question, options, onCorrectAnswer, onWrongAnswer }) => {
           <motion.button
             key={choice.id}
             onClick={() => handleOptionClick(choice)}
-            className="p-6 text-3xl font-bold rounded-[30px] shadow-lg border-b-8 bg-white border-blue-100 text-blue-600 active:border-b-0 active:translate-y-2 transition-all"
+            className="p-6 cursor-pointer text-3xl font-bold rounded-[30px] shadow-lg border-b-8 bg-white border-blue-100 text-blue-600 active:border-b-0 active:translate-y-2 transition-all"
           >
             {choice.name}
           </motion.button>

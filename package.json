@@ -10,21 +10,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@elevenlabs/elevenlabs-js": "^2.43.0",
     "@tailwindcss/vite": "^4.2.2",
-    "canvas-confetti": "^1.9.4",
     "dotenv": "^17.4.2",
     "framer-motion": "^12.38.0",
-    "howler": "^2.2.4",
     "lucide-react": "^1.8.0",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
-    "react-speech-recognition": "^4.0.1",
-    "react-text-to-speech": "^5.1.9",
     "string-similarity": "^4.0.4",
     "sweetalert2": "^11.26.24",
     "tailwindcss": "^4.2.2",
-    "text-to-speech-js": "^1.1.11",
     "use-sound": "^5.0.0"
   },
   "devDependencies": {
