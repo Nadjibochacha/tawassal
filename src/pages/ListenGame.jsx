@@ -35,8 +35,15 @@ const ListenGame = ({ zoneId, onComplete }) => {
 
   const finishGame = async () => {
     setIsFinished(true);
-    // Pass the celebration sound
+    const celebrateSound = new Audio('../assets/songs/celabrate.mp3');
+    // 2. Play the sound!
+    celebrateSound.play().catch((err) => {
+      console.log("Browser blocked the celebration sound:", err);
+    });
+  
+    // 3. Keep your existing visual celebration logic
     await showFeedback.celebrate(currentZone.title, playCelebrate);
+    
     onComplete();
   };
 

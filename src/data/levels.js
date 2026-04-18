@@ -60,7 +60,7 @@ export const zones = [
             {
               id: 106,
               name: 'مِفتاح',
-              image: "https://res.cloudinary.com/dwyiuyy8u/image/upload/v1776459114/Spoon_bofeao.webp",
+              image: "https://res.cloudinary.com/dwyiuyy8u/image/upload/v1776459116/Key_pyf0vk.webp",
               options: [
                 { id: 101, name: 'كُرسي' },
                 { id: 104, name: 'باب' },
@@ -70,7 +70,7 @@ export const zones = [
             {
               id: 107,
               name: 'مِلعقة',
-              image: "https://res.cloudinary.com/dwyiuyy8u/image/upload/v1776459117/Door_utp0ix.webp",
+              image: "https://res.cloudinary.com/dwyiuyy8u/image/upload/v1776459114/Spoon_bofeao.webp",
               options: [
                 { id: 108, name: 'صَحْن' },
                 { id: 107, name: 'مِلعقة' }, // Matches question id 107
@@ -182,7 +182,7 @@ export const zones = [
           {
             id: 205,
             name: 'أَرْنَب',
-            image: 'https://images.unsplash.com/photo-1585110396000-c9faf2e520eb?auto=format&fit=crop&w=500&q=80',
+            image: 'https://thumbs.dreamstime.com/b/white-rabbit-gray-background-sitting-38897227.jpg',
             options: [
               { id: 205, name: 'أَرْنَب' }, // Fixed ID to match
               { id: 204, name: 'فِيل' },
@@ -202,7 +202,7 @@ export const zones = [
           {
             id: 207,
             name: 'زَرَافَة',
-            image: 'https://images.unsplash.com/photo-1547185942-4467c69993dc?auto=format&fit=crop&w=500&q=80',
+            image: 'https://c02.purpledshub.com/uploads/sites/62/2018/06/GettyImages-691120045-6eddcf2.jpg?webp=1&w=1200',
             options: [
               { id: 207, name: 'زَرَافَة' }, // Fixed ID to match
               { id: 210, name: 'نِمْر' },
@@ -212,7 +212,7 @@ export const zones = [
           {
             id: 208,
             name: 'جَمَل',
-            image: 'https://images.unsplash.com/photo-1543165365-07232ed12fad?auto=format&fit=crop&w=500&q=80',
+            image: 'https://a-z-animals.com/media/animals/images/original/camel6-768x593.jpg',
             options: [
               { id: 208, name: 'جَمَل' }, // Fixed ID to match
               { id: 206, name: 'حِصَان' },
@@ -232,7 +232,7 @@ export const zones = [
           {
             id: 210,
             name: 'نِمْر',
-            image: 'https://images.unsplash.com/photo-1561731216-c3a428753408?auto=format&fit=crop&w=500&q=80',
+            image: 'https://animals.sandiegozoo.org/sites/default/files/inline-images/tiger_indochinese_animals.jpg',
             options: [
               { id: 210, name: 'نِمْر' }, // Fixed ID to match
               { id: 204, name: 'فِيل' },
@@ -252,7 +252,7 @@ export const zones = [
           {
             id: 212,
             name: 'بَطَّة',
-            image: 'https://images.unsplash.com/photo-1459666644539-a9755287d6b0?auto=format&fit=crop&w=500&q=80',
+            image: 'https://static.vecteezy.com/system/resources/thumbnails/058/117/766/small/charming-khaki-campbell-duck-color-illustration-artwork-cartoon-art-animal-illustration-vector.jpg',
             options: [
               { id: 212, name: 'بَطَّة' }, // Fixed ID to match
               { id: 222, name: 'قِطَّة' },
@@ -284,7 +284,7 @@ export const zones = [
           {
             id: 302,
             name: 'شَجَرَة',
-            image: 'https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&w=500&q=80',
+            image: 'https://images.unsplash.com/photo-1502082553048-f009c37129b9?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dHJlZXxlbnwwfHwwfHx8MA==',
             options: [
               { id: 307, name: 'مَبْنَى' },
               { id: 302, name: 'شَجَرَة' }, // Matches question 302
@@ -313,8 +313,8 @@ export const zones = [
           },
           {
             id: 305,
-            name: 'إِشَارَة مُرُور',
-            image: 'https://images.unsplash.com/photo-1534068590799-09895a709e41?auto=format&fit=crop&w=500&q=80',
+            name: 'إِشَارَةُ مُرُور',
+            image: 'https://png.pngtree.com/png-vector/20250608/ourmid/pngtree-a-realistic-traffic-light-3d-png-image_16495581.png',
             options: [
               { id: 311, name: 'لَافِتَة' },
               { id: 305, name: 'إِشَارَة مُرُور' }, // Matches question 305
@@ -344,7 +344,7 @@ export const zones = [
           {
             id: 308,
             name: 'رَصِيف',
-            image: 'https://images.unsplash.com/photo-1495837174058-628aafc7d610?auto=format&fit=crop&w=500&q=80',
+            image: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhVB02foEINM7fU6Z1PsFEFMswx-CLeui-TocYFj7_mUqIXEYRZWg2fwziQP1XS2Z_Q1amVxN1UmM2rvwPP94fgzBTC-2IRzMdhKXg6XvZY05bJ-vuowaSsBUH0gWqj1txFkHRp80WYTJpkcXX280Osyqzlr-5D9LNcYMsSnV6clpZDqQHRtxEyo83rqhw/w640-h474/%D9%84%D9%82%D8%B7%D8%A9%20%D8%A7%D9%84%D8%B4%D8%A7%D8%B4%D8%A9%202023-08-24%20103520.pnghttps://jazeerapaints.com/media/catalog/product/w/e/wezzz2nzcdhirzg4wejweu12vm9xdz09_pgpxtzanvroj0jj8.jpg?optimize=high&fit=bounds&height=590&width=650',
             options: [
               { id: 306, name: 'شَارِع' },
               { id: 309, name: 'جِسْر' },
@@ -354,7 +354,7 @@ export const zones = [
           {
             id: 309,
             name: 'جِسْر',
-            image: 'https://images.unsplash.com/photo-1513628253939-010e64ac66cd?auto=format&fit=crop&w=500&q=80',
+            image: 'https://ichef.bbci.co.uk/ace/ws/640/cpsprodpb/1977/live/6fb60f80-eb69-11ee-860f-4b0b053e4cd0.jpg.webp',
             options: [
               { id: 309, name: 'جِسْر' }, // Matches question 309
               { id: 307, name: 'مَبْنَى' },
@@ -374,7 +374,7 @@ export const zones = [
           {
             id: 311,
             name: 'لَافِتَة',
-            image: 'https://images.unsplash.com/photo-1536605922572-c70db1f2dc62?auto=format&fit=crop&w=500&q=80',
+            image: 'https://png.pngtree.com/thumb_back/fh260/background/20221004/pngtree-signage-for-bleecker-street-and-grove-street-on-the-streets-of-new-york-city-photo-image_34081066.jpg',
             options: [
               { id: 311, name: 'لَافِتَة' }, // Matches question 311
               { id: 305, name: 'إِشَارَة مُرُور' },
@@ -383,8 +383,8 @@ export const zones = [
           },
           {
             id: 312,
-            name: 'سَيَّارَة شُرْطَة',
-            image: 'https://images.unsplash.com/photo-1563212048-b4b0e50c4366?auto=format&fit=crop&w=500&q=80',
+            name: 'سَيَّارَةُ شُرْطَة',
+            image: 'https://cdn.enabbaladi.net/arabic/wp-content/uploads/2018/11/Lamborghini-Aventador.jpg',
             options: [
               { id: 303, name: 'حَافِلَة' },
               { id: 301, name: 'سَيَّارَة' },
@@ -486,7 +486,7 @@ export const zones = [
           {
             id: 409,
             name: 'خِيَار',
-            image: 'https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=500&q=80',
+            image: 'https://cairofoodgroup.com/wp-content/uploads/2023/03/WhatsApp-Image-2023-03-21-at-11.08.00-PM.jpeg',
             options: [
               { id: 415, name: 'بَاذِنْجَان' },
               { id: 409, name: 'خِيَار' }, // Matches 409
@@ -496,7 +496,7 @@ export const zones = [
           {
             id: 410,
             name: 'بَصَل',
-            image: 'https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&fit=crop&w=500&q=80',
+            image: 'https://static.webteb.net/images/content/slideshowslide_sss_3704_1229b0a012-398f-4fdb-a870-841c8bfa6259.jpg',
             options: [
               { id: 411, name: 'ثُوم' },
               { id: 412, name: 'بَطَاطَا' },
@@ -506,7 +506,7 @@ export const zones = [
           {
             id: 411,
             name: 'ثُوم',
-            image: 'https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=500&q=80',
+            image: 'https://cdn.alweb.com/thumbs/top10blarabi/article/fit710x532/%D8%A3%D9%81%D8%B6%D9%84-%D8%A3%D9%86%D9%88%D8%A7%D8%B9-%D8%A7%D9%84%D8%AB%D9%88%D9%85-%D9%81%D9%8A-%D8%A7%D9%84%D8%B9%D8%A7%D9%84%D9%85.jpg',
             options: [
               { id: 411, name: 'ثُوم' }, // Matches 411
               { id: 410, name: 'بَصَل' },
@@ -516,7 +516,7 @@ export const zones = [
           {
             id: 412,
             name: 'بَطَاطَا',
-            image: 'https://images.unsplash.com/photo-1518977822534-7049a61ee0c2?auto=format&fit=crop&w=500&q=80',
+            image: 'https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&fit=crop&w=500&q=80',
             options: [
               { id: 407, name: 'جَزَر' },
               { id: 412, name: 'بَطَاطَا' }, // Matches 412
