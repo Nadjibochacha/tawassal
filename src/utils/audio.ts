@@ -1,9 +1,8 @@
-// useTextToSpeech.ts
 import { useEffect, useRef } from "react";
 
 interface TTSOptions {
-  rate?: number;   
-  pitch?: number; 
+  rate?: number;
+  pitch?: number;
 }
 
 interface TTSResult {
@@ -15,49 +14,88 @@ export function useTextToSpeech(): TTSResult {
   const voicesRef = useRef<SpeechSynthesisVoice[]>([]);
 
   useEffect(() => {
-    const load = () => {
+    const loadVoices = () => {
       voicesRef.current = window.speechSynthesis.getVoices();
     };
-    load();
-    window.speechSynthesis.onvoiceschanged = load;
+
+    loadVoices();
+    window.speechSynthesis.onvoiceschanged = loadVoices;
 
     return () => {
       window.speechSynthesis.cancel();
     };
   }, []);
 
-  const speak = (text: string, options: TTSOptions = {}): Promise<void> => {
-    return new Promise((resolve, reject) => {
-      if (!("speechSynthesis" in window)) {
-        return;
-      }
-  
-      if (!text.trim()) {
-        return;
-      }
-  
-      window.speechSynthesis.cancel();
-  
-      const utt = new SpeechSynthesisUtterance(text);
-  
-      const allVoices = window.speechSynthesis.getVoices();
-      const arabicVoice = allVoices.find(v => v.lang === "ar-SA")
-        ?? allVoices.find(v => v.lang.startsWith("ar"))
-        ?? allVoices[0]   // fallback: just use whatever is available
-        ?? null;
-  
-      console.log("Using voice:", arabicVoice); // remove after debugging
-  
-      utt.voice = arabicVoice;
-      utt.lang  = "ar-SA"; // always force Arabic, regardless of voice
-      utt.rate  = options.rate  ?? 1;
-      utt.pitch = options.pitch ?? 1;
-  
-      utt.onend   = () => resolve();
-      utt.onerror = (e) => {
-        reject(new Error(`Speech error: ${e.error}`));
+  const waitForVoices = (): Promise<SpeechSynthesisVoice[]> => {
+    return new Promise((resolve) => {
+      const voices = window.speechSynthesis.getVoices();
+      if (voices.length) return resolve(voices);
+
+      const handler = () => {
+        const updatedVoices = window.speechSynthesis.getVoices();
+        if (updatedVoices.length) {
+          window.speechSynthesis.onvoiceschanged = null;
+          resolve(updatedVoices);
+        }
       };
-  
+
+      window.speechSynthesis.onvoiceschanged = handler;
+    });
+  };
+
+  const speak = async (
+    text: string,
+    options: TTSOptions = {}
+  ): Promise<void> => {
+    if (!("speechSynthesis" in window)) {
+      throw new Error("Speech synthesis not supported");
+    }
+
+    if (!text.trim()) {
+      return;
+    }
+
+    // Ensure voices are loaded
+    let allVoices =
+      voicesRef.current.length > 0
+        ? voicesRef.current
+        : await waitForVoices();
+
+    if (!allVoices.length) {
+      throw new Error("No voices available");
+    }
+
+    window.speechSynthesis.cancel();
+
+    const utt = new SpeechSynthesisUtterance(text);
+
+    // Filter Arabic voices
+    const arabicVoices = allVoices.filter((v) =>
+      v.lang.toLowerCase().startsWith("ar")
+    );
+
+    // Voice selection strategy
+    const preferredVoice =
+      arabicVoices.find((v) => v.lang === "ar-SA") ||
+      arabicVoices[0] ||
+      allVoices[0] ||
+      null;
+
+    console.log("Using voice:", preferredVoice);
+
+    if (preferredVoice) {
+      utt.voice = preferredVoice;
+      utt.lang = preferredVoice.lang; // keep consistent
+    }
+
+    utt.rate = options.rate ?? 1;
+    utt.pitch = options.pitch ?? 1;
+
+    return new Promise((resolve, reject) => {
+      utt.onend = () => resolve();
+      utt.onerror = (e) =>
+        reject(new Error(`Speech error: ${e.error}`));
+
       window.speechSynthesis.speak(utt);
     });
   };
