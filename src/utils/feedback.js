@@ -33,9 +33,9 @@ export const showFeedback = {
   celebrate: (zoneTitle, playCelebrate) => {
     if (playCelebrate) playCelebrate();
     return Swal.fire({
-      title: 'بطل القراءة! 🏆',
+      title: 'بطل الاستماع! 🏆',
       html: `<p>لقد أنهيت <b>${zoneTitle}</b> بنجاح!</p>`,
-      imageUrl: 'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJtZmx4bmV6bmV6bmV6bmV6/l41lI4bYvYvYvYvYv/giphy.gif',
+      imageUrl: 'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNjByYXJnMHIwY2Q4cXNjZnFvN3RhOTdkNnprdjl6aHU0NHFrNXgzdiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/5xj6M6afyYjdIpA8VG/giphy.gif',
       imageWidth: 200,
       confirmButtonText: 'إلى الأمام! 🚀',
       confirmButtonColor: '#f59e0b',

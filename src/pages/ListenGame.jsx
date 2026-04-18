@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import QuizCard from '../components/game/QuizCard';
-import confetti from 'canvas-confetti';
 import { zones } from '../data/levels'; 
 import { showFeedback } from '../utils/feedback';
 import { useGameSounds } from '../utils/sfx';
@@ -42,7 +41,7 @@ const ListenGame = ({ zoneId, onComplete }) => {
   };
 
   if (isFinished) {
-    return (
+    return (  
       <div className="flex flex-col items-center justify-center p-10 text-center">
         <motion.h2 initial={{scale:0}} animate={{scale:1}} className="text-5xl font-bold text-orange-500 mb-4">
           أحسنت! 🌟

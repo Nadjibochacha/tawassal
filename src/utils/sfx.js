@@ -1,13 +1,11 @@
+// src/utils/sfx.js
 import useSound from 'use-sound';
 
 
 const SOUND_URLS = {
-  success: 'https://fonts.gstatic.com/s/i/productlogos/googleg/v6/web-24dp/logo_googleg_color_24dp.png', // Wait, this is an image. 
-  
-  // Let's use these reliable GitHub-hosted or Wikimedia Commons assets:
-  success: 'https://actions.google.com/sounds/v1/cartoon/clime.ogg',
-  wrong: 'https://actions.google.com/sounds/v1/cartoon/pop.ogg',
-  celebrate: 'https://actions.google.com/sounds/v1/human_voices/applause.ogg',
+  success: 'https://assets.mixkit.co/active_storage/sfx/2000/2000-preview.mp3',
+  wrong: 'https://assets.mixkit.co/active_storage/sfx/2013/2013-preview.mp3',
+  celebrate: '../assets/songs/celabrate.mp3',
 };
 
 export const useGameSounds = () => {

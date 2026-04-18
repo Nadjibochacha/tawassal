@@ -3,6 +3,14 @@ import { zones } from '../data/levels';
 import { Star } from 'lucide-react'; 
 
 const Home = ({ onSelectZone, completedZones = [] }) => {
+  const handleZoneClick = (zoneId) => {
+    // WARM UP: Speak an empty string to unlock the audio context
+    const probe = new SpeechSynthesisUtterance("");
+    window.speechSynthesis.speak(probe);
+    
+    // Now proceed to the game
+    onSelectZone(zoneId);
+  };
   return (
     <div className="p-6">
       <h2 className="text-4xl font-black text-center text-gray-800 mb-10">
@@ -16,7 +24,7 @@ const Home = ({ onSelectZone, completedZones = [] }) => {
           return (
             <button
               key={zone.id}
-              onClick={() => onSelectZone(zone.id)}
+              onClick={() => handleZoneClick(zone.id)}
               className={`group relative p-8 rounded-[40px] shadow-xl transition-all border-b-8 
                 ${isDone 
                   ? 'bg-green-50 border-green-400 text-green-700' 

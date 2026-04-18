@@ -1,43 +1,45 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { playArabicSpeech } from '../../utils/audio';
-
+import { useTextToSpeech } from "../../utils/audio";
 
 const QuizCard = ({ question, options, onCorrectAnswer, onWrongAnswer }) => {
   
-  const handleOptionClick = (choice) => {
+  const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+  const { speak } = useTextToSpeech();
+
+  const handleOptionClick = async (choice) => {
+    // 1. Play the high-quality Google voice instantly
+    speak(choice.name);
+    
+    // 2. Wait exactly 0.5s for the word to finish
+    await delay(500);
+
+    // 3. Decision
     if (choice.id === question.id) {
       onCorrectAnswer();
     } else {
       onWrongAnswer(); 
-      playArabicSpeech(choice.name); 
     }
   };
 
   return (
     <div className="flex flex-col items-center gap-8 p-4">
+      {/* Main Image */}
       <motion.div 
-        initial={{ scale: 0.5, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        whileTap={{ scale: 0.9 }}
-        className="w-64 h-64 bg-white rounded-full border-8 border-yellow-400 shadow-xl overflow-hidden flex items-center justify-center cursor-pointer"
-        onClick={() => playArabicSpeech(question.name)}
+        
+        className="w-64 h-64 bg-white rounded-[50px] border-8 border-yellow-400 shadow-2xl overflow-hidden flex items-center justify-center cursor-pointer"
       >
-        <img 
-          src={question.image} 
-          alt="quiz" 
-          className="w-40 h-40 object-contain"
-        />
+        
+        <img src={question.image} alt="quiz" className="w-44 h-44 object-contain" />
       </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full max-w-2xl">
+      {/* Options */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-2xl">
         {options.map((choice) => (
           <motion.button
             key={choice.id}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
             onClick={() => handleOptionClick(choice)}
-            className="p-6 text-3xl font-bold rounded-2xl shadow-lg border-b-8 bg-white border-gray-200 text-blue-600 active:border-b-0 active:translate-y-1 transition-all"
+            className="p-6 text-3xl font-bold rounded-[30px] shadow-lg border-b-8 bg-white border-blue-100 text-blue-600 active:border-b-0 active:translate-y-2 transition-all"
           >
             {choice.name}
           </motion.button>
