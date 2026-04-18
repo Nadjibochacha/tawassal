@@ -15,7 +15,7 @@ export const useSpeech = () => {
   const startListening = () => {
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     const recognition = new SpeechRecognition();
-    recognition.lang = 'ar-SA';
+    recognition.lang = 'ar';
     
     recognition.onstart = () => setIsListening(true);
     recognition.onresult = (event) => {
