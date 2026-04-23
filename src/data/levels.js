@@ -1,3 +1,4 @@
+// choose the right word game
 export const zones = [
   {
       id: 'home',
