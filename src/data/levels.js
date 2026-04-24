@@ -345,7 +345,7 @@ export const zones = [
           {
             id: 308,
             name: 'رَصِيف',
-            image: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhVB02foEINM7fU6Z1PsFEFMswx-CLeui-TocYFj7_mUqIXEYRZWg2fwziQP1XS2Z_Q1amVxN1UmM2rvwPP94fgzBTC-2IRzMdhKXg6XvZY05bJ-vuowaSsBUH0gWqj1txFkHRp80WYTJpkcXX280Osyqzlr-5D9LNcYMsSnV6clpZDqQHRtxEyo83rqhw/w640-h474/%D9%84%D9%82%D8%B7%D8%A9%20%D8%A7%D9%84%D8%B4%D8%A7%D8%B4%D8%A9%202023-08-24%20103520.pnghttps://jazeerapaints.com/media/catalog/product/w/e/wezzz2nzcdhirzg4wejweu12vm9xdz09_pgpxtzanvroj0jj8.jpg?optimize=high&fit=bounds&height=590&width=650',
+            image: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjyTjsS1c-BGg6y3tS3mQWAkegBHfMKke-X2YrymZZvppSrcTL4k03P_yizT1ift_9I7u9bn_Q0u5x1fmFRr7CTP9qYB4l6hqXcgLD1oOpO3cKbJTB9G6UrB-BgOx4mmWKPbG95JIGsKYTesahKzYdCKt2l9G7nCClGOzVud9aTJF9UTNzWo_LxLgK2zs4/w640-h480/laval-curb-paint.jpg',
             options: [
               { id: 306, name: 'شَارِع' },
               { id: 309, name: 'جِسْر' },
@@ -497,7 +497,7 @@ export const zones = [
           {
             id: 410,
             name: 'بَصَل',
-            image: 'https://static.webteb.net/images/content/slideshowslide_sss_3704_1229b0a012-398f-4fdb-a870-841c8bfa6259.jpg',
+            image: 'https://images.matjrah.online/1404/image/catalog/1716664263-%D8%A8%D8%B5%D9%84%20%D8%A7%D8%AD%D9%85%D8%B1-500x500.png',
             options: [
               { id: 411, name: 'ثُوم' },
               { id: 412, name: 'بَطَاطَا' },
@@ -527,7 +527,7 @@ export const zones = [
           {
             id: 413,
             name: 'لَيْمُون',
-            image: 'https://images.unsplash.com/photo-1590502593747-42a996111153?auto=format&fit=crop&w=500&q=80',
+            image: 'https://media.zid.store/thumbs/a44a5136-8837-49cc-b57e-bca87eaa69ed/7be271a2-64d1-44eb-86a4-e86091fb26fb-thumbnail-500x500-70.jpg',
             options: [
               { id: 402, name: 'مَوْز' },
               { id: 419, name: 'ذُرَة' },
@@ -547,7 +547,7 @@ export const zones = [
           {
             id: 415,
             name: 'بَاذِنْجَان',
-            image: 'https://images.unsplash.com/photo-1614735241165-6756e1df61ab?auto=format&fit=crop&w=500&q=80',
+            image: 'https://cdn.salla.sa/BEabB/82fSq19WYQ1j9BwHRFT5XpZZEoDuIOkRTUfLw8CZ.jpg',
             options: [
               { id: 409, name: 'خِيَار' },
               { id: 415, name: 'بَاذِنْجَان' }, // Matches 415
@@ -577,7 +577,7 @@ export const zones = [
           {
             id: 418,
             name: 'خَوْخ',
-            image: 'https://images.unsplash.com/photo-1528820600606-0ef5600cbfee?auto=format&fit=crop&w=500&q=80',
+            image: 'https://static.webteb.net/images/content/tbl_articles_article_14264_7714eb6b28d-89a4-4204-ab59-07ce4573b2d9.jpg',
             options: [
               { id: 403, name: 'بُرْتُقَال' },
               { id: 418, name: 'خَوْخ' }, // Matches 418

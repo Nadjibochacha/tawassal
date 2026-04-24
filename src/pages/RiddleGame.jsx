@@ -114,7 +114,7 @@ const RiddleGame = ({ zoneId, onComplete }) => {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               onClick={() => speak(currentQuestion.riddle)}
-              className="bg-orange-100 text-orange-600 p-6 rounded-full shadow-md border-4 border-orange-200 hover:bg-orange-200 flex items-center justify-center"
+              className="bg-orange-100 text-orange-600 p-6 cursor-pointer rounded-full shadow-md border-4 border-orange-200 hover:bg-orange-200 flex items-center justify-center"
             >
               <Volume2 size={48} />
             </motion.button>
@@ -128,12 +128,12 @@ const RiddleGame = ({ zoneId, onComplete }) => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => handleChoice(option.id)}
-                className="bg-gray-50 p-4 rounded-3xl shadow-md border-4 border-transparent hover:border-orange-400 focus:outline-none transition-colors"
+                className="bg-gray-50 p-4 cursor-pointer rounded-3xl shadow-md border-4 border-transparent hover:border-orange-400 focus:outline-none transition-colors"
               >
                 <img 
                   src={option.image} 
                   alt={option.name} 
-                  className="w-full h-40 object-cover rounded-2xl mb-4"
+                  className="w-full h-40 object-contain rounded-2xl mb-4"
                 />
                 <span className="text-2xl font-bold text-gray-700">{option.name}</span>
               </motion.button>

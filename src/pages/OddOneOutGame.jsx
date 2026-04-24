@@ -48,10 +48,9 @@ const OddOneOutGame = ({ zoneId, onComplete }) => {
     onComplete();
   };
 
-  const handleChoice = async (option) => {
+  const handleChoice =  (option) => {
     if (option.isOdd) {
-      // Explain WHY it's correct, then trigger success
-      await speak("أَحْسَنْت! " + currentQuestion.explanation);
+      speak("أَحْسَنْت! " + currentQuestion.explanation);
       handleCorrect();
     } else {
       speak("حَاوِلْ مَرَّةً أُخْرَى");
@@ -130,12 +129,12 @@ const OddOneOutGame = ({ zoneId, onComplete }) => {
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => handleChoice(opt)}
-                className="bg-gray-50 p-4 rounded-3xl shadow-md border-4 border-transparent hover:border-blue-400 transition-colors"
+                className="bg-gray-50 cursor-pointer p-4 rounded-3xl shadow-md border-4 border-transparent hover:border-blue-400 transition-colors"
               >
                 <img 
                   src={opt.image} 
                   alt={opt.name} 
-                  className="w-full h-40 sm:h-56 object-cover rounded-2xl mb-4" 
+                  className="w-full h-40 sm:h-56 object-contain rounded-2xl mb-4" 
                 />
                 <span className="text-2xl font-bold text-gray-700">{opt.name}</span>
               </motion.button>
