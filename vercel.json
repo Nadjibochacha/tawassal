@@ -1,0 +1,8 @@
+{
+    "rewrites": [
+      {
+        "source": "/tts-api/:path*",
+        "destination": "https://ttsmp3.com/:path*"
+      }
+    ]
+  }
