@@ -19,7 +19,7 @@ export const showFeedback = {
   wrong: (playWrong) => {
     if (playWrong) playWrong();
     return Swal.fire({
-      title: 'حاول ثانية! 💪',
+      title: 'حاول ثانِيَةً! 💪',
       text: 'أنت تقترب من الإجابة الصحيحة',
       icon: 'info',
       timer: 1500,

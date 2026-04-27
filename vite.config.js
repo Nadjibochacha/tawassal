@@ -6,5 +6,14 @@ export default defineConfig({
   plugins: [
     react(),
     tailwindcss()
-  ]
+  ],
+  server: {
+    proxy: {
+      '/tts-api': {
+        target: 'https://ttsmp3.com',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/tts-api/, '')
+      }
+    }
+  }
 })

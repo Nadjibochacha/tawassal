@@ -17,10 +17,7 @@ const ListenGame = ({ zoneId, onComplete }) => {
 
   const handleCorrect = async () => {
     setScore(prev => prev + 1);
-    
-    // Pass the sound function into the feedback utility
     await showFeedback.correct(playSuccess); 
-    
     if (currentStep < questions.length - 1) {
       setCurrentStep(prev => prev + 1);
     } else {

@@ -10,7 +10,7 @@ const OddOneOutGame = ({ zoneId, onComplete }) => {
   const [currentStep, setCurrentStep] = useState(0);
   const [score, setScore] = useState(0);
   const [isFinished, setIsFinished] = useState(false);
-  
+  const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
   const { playSuccess, playWrong, playCelebrate } = useGameSounds();
   const { speak } = useTextToSpeech();
 
@@ -28,7 +28,6 @@ const OddOneOutGame = ({ zoneId, onComplete }) => {
   const handleCorrect = async () => {
     setScore(prev => prev + 1);
     await showFeedback.correct(playSuccess); 
-    
     if (currentStep < questions.length - 1) {
       setCurrentStep(prev => prev + 1);
     } else {
@@ -48,12 +47,15 @@ const OddOneOutGame = ({ zoneId, onComplete }) => {
     onComplete();
   };
 
-  const handleChoice =  (option) => {
+  const handleChoice = async (option) => {
+    speak(option.name);
+    await delay(1900);
     if (option.isOdd) {
-      speak("أَحْسَنْت! " + currentQuestion.explanation);
+      speak(currentQuestion.explanation);
+      await delay(5000);
       handleCorrect();
     } else {
-      speak("حَاوِلْ مَرَّةً أُخْرَى");
+      speak("حَاوِلْ ثانِيَتَنْ");
       handleWrong();
     }
   };

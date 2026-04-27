@@ -10,7 +10,7 @@ const RiddleGame = ({ zoneId, onComplete }) => {
   const [currentStep, setCurrentStep] = useState(0);
   const [score, setScore] = useState(0);
   const [isFinished, setIsFinished] = useState(false);
-  
+  const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
   const { playSuccess, playWrong, playCelebrate } = useGameSounds();
   const { speak } = useTextToSpeech();
 
@@ -49,10 +49,13 @@ const RiddleGame = ({ zoneId, onComplete }) => {
     onComplete();
   };
 
-  const handleChoice = (optionId) => {
-    if (optionId === currentQuestion.correctAnswerId) {
+  const handleChoice = async (option) => {
+    speak(option.name);
+    await delay(1900);
+    if (option.id === currentQuestion.correctAnswerId) {
       handleCorrect();
     } else {
+      speak("حَاوِلْ ثانِيَتَنْ");
       handleWrong();
     }
   };
@@ -127,7 +130,7 @@ const RiddleGame = ({ zoneId, onComplete }) => {
                 key={option.id}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => handleChoice(option.id)}
+                onClick={() => handleChoice(option)}
                 className="bg-gray-50 p-4 cursor-pointer rounded-3xl shadow-md border-4 border-transparent hover:border-orange-400 focus:outline-none transition-colors"
               >
                 <img 

@@ -1,5 +1,5 @@
-// useTextToSpeech.ts
 import { useEffect, useRef } from "react";
+import { useTextToSpeech as useFallbackTTS } from "./audio2"; 
 
 interface TTSOptions {
   rate?: number;   
@@ -13,6 +13,7 @@ interface TTSResult {
 
 export function useTextToSpeech(): TTSResult {
   const voicesRef = useRef<SpeechSynthesisVoice[]>([]);
+  const { speak: fallbackSpeak, stop: fallbackStop } = useFallbackTTS(); 
 
   useEffect(() => {
     const load = () => {
@@ -27,43 +28,41 @@ export function useTextToSpeech(): TTSResult {
   }, []);
 
   const speak = (text: string, options: TTSOptions = {}): Promise<void> => {
-    return new Promise((resolve, reject) => {
-      if (!("speechSynthesis" in window)) {
-        return;
-      }
-  
+    return new Promise(async (resolve, reject) => {
       if (!text.trim()) {
-        return;
+        return resolve();
+      }
+
+      if (!("speechSynthesis" in window)) {
+        console.warn("Speech API not supported. Using fallback...");
+        await fallbackSpeak(text);
+        return resolve();
       }
   
       window.speechSynthesis.cancel();
   
       const utt = new SpeechSynthesisUtterance(text);
-  
       const allVoices = window.speechSynthesis.getVoices();
-      
-      // Look for ANY Arabic voice (ar-EG, ar-AE, ar-SA, ar-MA, etc.)
-      const arabicVoice = allVoices.find(v => v.lang.startsWith("ar"))
-        ?? allVoices[0]   // fallback: just use whatever is available
-        ?? null;
-  
-      console.log("Using voice:", arabicVoice); // remove after debugging
-  
-      if (arabicVoice) {
-        utt.voice = arabicVoice;
-        // CRITICAL FIX: Dynamically set the lang to match the exact Arabic voice found on the device
-        utt.lang = arabicVoice.lang.startsWith("ar") ? arabicVoice.lang : "ar";
-      } else {
-        // Absolute fallback if no voice object is found at all
-        utt.lang = "ar"; 
+      const arabicVoice = allVoices.find(v => v.lang.startsWith("ar"));
+      if (!arabicVoice) {
+        console.warn("No native Arabic voice found. Using TTSMP3 fallback...");
+        await fallbackSpeak(text);
+        return resolve();
       }
+
+      utt.voice = arabicVoice;
+      utt.lang = arabicVoice.lang;
       
       utt.rate  = options.rate  ?? 1;
       utt.pitch = options.pitch ?? 1;
   
       utt.onend   = () => resolve();
-      utt.onerror = (e) => {
-        reject(new Error(`Speech error: ${e.error}`));
+      
+      // 4. إذا حدث خطأ أثناء المحاولة بالصوت الأساسي، شغل البديل
+      utt.onerror = async (e) => {
+        console.warn(`Native speech error: ${e.error}. Switching to fallback...`);
+        await fallbackSpeak(text);
+        resolve();
       };
   
       window.speechSynthesis.speak(utt);
@@ -72,6 +71,7 @@ export function useTextToSpeech(): TTSResult {
 
   const stop = () => {
     window.speechSynthesis.cancel();
+    fallbackStop();
   };
 
   return { speak, stop };
