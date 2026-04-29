@@ -6,6 +6,7 @@ const Home = ({ onSelectGame }) => {
     { id: 'listen', title: 'اِسْمَعْ وَاخْتَرْ', icon: '🎧', color: 'text-blue-600' },
     { id: 'odd', title: 'لُعْبَةُ الْغَرِيب', icon: '🔍', color: 'text-purple-600' },
     { id: 'riddle', title: 'لُعْبَةُ الْحَزَازِير', icon: '💡', color: 'text-orange-600' },
+    {id: 'verbgame', title: 'لعبة الأفعال',icon: '🏃‍♂️',color: 'text-cyan-600'}
   ];
 
   const handleGameClick = (gameId) => {
@@ -16,7 +17,7 @@ const Home = ({ onSelectGame }) => {
 
   return (
     <div className="p-6">
-      <h2 className="text-4xl font-black text-center text-gray-800 mb-10">
+      <h2 className="text-4xl font-black text-center text-gray-800  mb-10">
         هَيَّا نَلْعَب يا بَطَل!
       </h2>
       

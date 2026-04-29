@@ -2,13 +2,15 @@ import React from 'react';
 import { Star } from 'lucide-react';
 import { zones } from '../data/levels'; 
 import { riddleLevels } from '../data/riddle';
-import { oddOneOutLevels } from '../data/oddOut'; 
+import { oddOneOutLevels } from '../data/oddOut';
+import {actionLevels} from '../data/actionLevels';
 
 const ZoneSelection = ({ gameType, onSelectZone, completedZones = [], onBack }) => {
   const getActiveZones = () => {
     if (gameType === 'listen') return zones;
     if (gameType === 'riddle') return riddleLevels;
     if (gameType === 'odd') return oddOneOutLevels; 
+    if (gameType === 'verbgame') return actionLevels; 
     
     return zones; 
   };
@@ -25,7 +27,6 @@ const ZoneSelection = ({ gameType, onSelectZone, completedZones = [], onBack }) 
       </div>
       
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {/* 3. Map over currentZones instead of the hardcoded 'zones' */}
         {currentZones.map((zone) => {
           const gameZoneId = `${gameType}_${zone.id}`;
           const isDone = completedZones.includes(gameZoneId);

@@ -4,6 +4,7 @@ import ZoneSelection from './pages/ZoneSelection';
 import ListenGame from './pages/ListenGame';
 import OddOneOutGame from './pages/OddOneOutGame';
 import RiddleGame from './pages/RiddleGame';
+import VerbGame from './pages/VerbGame'
 import { getProgress, saveProgress } from './utils/storage';
 import { Star } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -67,10 +68,14 @@ function App() {
               {gameMode === 'listen' && <ListenGame zoneId={activeZone} onComplete={handleLevelComplete} />}
               {gameMode === 'odd' && <OddOneOutGame zoneId={activeZone} onComplete={handleLevelComplete} />}
               {gameMode === 'riddle' && <RiddleGame zoneId={activeZone} onComplete={handleLevelComplete} />}
+              {gameMode === 'verbgame' && <VerbGame zoneId={activeZone} onComplete={handleLevelComplete} />}
             </motion.div>
           )}
         </AnimatePresence>
       </main>
+      <footer className='w-full lg:fixed sticky bottom-0 lg: text-gray-900 p-4 text-center text-xl font-bold bg-[#FFFBEB]'>
+        <p>من تطوير: <a href="https://nadjib-chacha.vercel.app/" className=''>MED DEV</a></p>
+      </footer>
     </div>
   );
 }
